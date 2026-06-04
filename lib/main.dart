@@ -95,13 +95,12 @@ class _MyHomePageState extends State<MyHomePage> {
       body: LayoutBuilder(
         builder: (context, constraints) {
           if (constraints.maxWidth < 450) {
-            // Use a more mobile-friendly layout with BottomNavigationBar
-            // on narrow screens.
-            return Column(
-              children: [
-                Expanded(child: mainArea),
-                SafeArea(
-                  child: BottomNavigationBar(
+            return SafeArea(
+              bottom: false,
+              child: Column(
+                children: [
+                  Expanded(child: mainArea),
+                  BottomNavigationBar(
                     items: [
                       BottomNavigationBarItem(
                         icon: Icon(Icons.home),
@@ -119,8 +118,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       });
                     },
                   ),
-                ),
-              ],
+                ],
+              ),
             );
           } else {
             return Row(
